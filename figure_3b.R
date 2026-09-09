@@ -3741,7 +3741,8 @@ analyse_3D_data_with_2D_slices <- function(
       minimum_distance_data <- calculate_minimum_distances_between_cell_types3D(df,
                                                                                 cell_types,
                                                                                 show_summary = F,
-                                                                                plot_image = F)
+                                                                                plot_image = F,
+                                                                                feature_colname = "Cell.Type")
       
       minimum_distance_data_summary <- summarise_distances_between_cell_types3D(minimum_distance_data)
       
@@ -3758,7 +3759,8 @@ analyse_3D_data_with_2D_slices <- function(
                                                              reference_cell_type,
                                                              cell_types,
                                                              radii,
-                                                             plot_image = F)
+                                                             plot_image = F,
+                                                             feature_colname = "Cell.Type")
         
         for (target_cell_type in cell_types) {
           print(paste(reference_cell_type, target_cell_type, sep = "/"))
@@ -3818,7 +3820,8 @@ analyse_3D_data_with_2D_slices <- function(
                                                                                 n_splits,
                                                                                 reference_cell_type, 
                                                                                 target_cell_type,
-                                                                                plot_image = F)
+                                                                                plot_image = F,
+                                                                                feature_colname = "Cell.Type")
             
             if (is.null(proportion_grid_metrics)) {
               metric_df_list[["PBSAC"]][pair_index, "PBSAC"] <- NA
@@ -3842,7 +3845,8 @@ analyse_3D_data_with_2D_slices <- function(
             entropy_grid_metrics <- calculate_entropy_grid_metrics3D(df, 
                                                                      n_splits,
                                                                      c(reference_cell_type, target_cell_type), 
-                                                                     plot_image = F)
+                                                                     plot_image = F,
+                                                                     feature_colname = "Cell.Type")
             
             if (is.null(entropy_grid_metrics)) {
               metric_df_list[["EBSAC"]][pair_index, "EBSAC"] <- NA
@@ -3881,7 +3885,8 @@ analyse_3D_data_with_2D_slices <- function(
       minimum_distance_data <- calculate_minimum_distances_between_cell_types2D(df,
                                                                                 cell_types,
                                                                                 show_summary = F,
-                                                                                plot_image = F)
+                                                                                plot_image = F,
+                                                                                feature_colname = "Cell.Type")
       
       minimum_distance_data_summary <- summarise_distances_between_cell_types2D(minimum_distance_data)
       
@@ -3898,7 +3903,8 @@ analyse_3D_data_with_2D_slices <- function(
                                                              reference_cell_type,
                                                              cell_types,
                                                              radii,
-                                                             plot_image = F)
+                                                             plot_image = F,
+                                                             feature_colname = "Cell.Type")
         
         for (target_cell_type in cell_types) {
           print(paste(reference_cell_type, target_cell_type, sep = "/"))
@@ -3958,7 +3964,8 @@ analyse_3D_data_with_2D_slices <- function(
                                                                                 n_splits,
                                                                                 reference_cell_type, 
                                                                                 target_cell_type,
-                                                                                plot_image = F)
+                                                                                plot_image = F,
+                                                                                feature_colname = "Cell.Type")
             
             if (is.null(proportion_grid_metrics)) {
               metric_df_list[["PBSAC"]][pair_index, "PBSAC"] <- NA
@@ -3982,7 +3989,8 @@ analyse_3D_data_with_2D_slices <- function(
             entropy_grid_metrics <- calculate_entropy_grid_metrics2D(df, 
                                                                      n_splits,
                                                                      c(reference_cell_type, target_cell_type), 
-                                                                     plot_image = F)
+                                                                     plot_image = F,
+                                                                     feature_colname = "Cell.Type")
             
             if (is.null(entropy_grid_metrics)) {
               metric_df_list[["EBSAC"]][pair_index, "EBSAC"] <- NA
