@@ -4120,7 +4120,7 @@ analyse_3D_data_with_2D_slices <- function(
 }
 
 
-mouse_brain_cortex_metric_df_list <- 
+mouse_brain_hypothalamus_metric_df_list <- 
   analyse_3D_data_with_2D_slices(
     data3D = data3D,
     cell_types = cell_types,
