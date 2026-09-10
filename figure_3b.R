@@ -419,7 +419,7 @@ calculate_cell_proportion_grid_metrics3D <- function(spatial_df,
   result$proportion <- result$target / result$total
   
   # Add grid_prism_coordinates info to result
-  result <- cbind(result, grid_prism_coordinatess)
+  result <- cbind(result, grid_prism_coordinates)
   
   ## Plot
   if (plot_image) {
@@ -1813,6 +1813,42 @@ calculate_spatial_autocorrelation3D <- function(grid_metrics,
   return(I)
 }
 
+summarise_distances_between_cell_types3D <- function(distances_df) {
+  
+  # Just in case?
+  pair <- distance <- NULL
+  
+  # Summarise the results
+  distances_df_summarised <- distances_df %>%
+    dplyr::group_by(pair) %>%
+    dplyr::summarise(mean(distance),
+                     min(distance),
+                     max(distance),
+                     stats::median(distance),
+                     stats::sd(distance))
+  
+  distances_df_summarised <- data.frame(distances_df_summarised)
+  
+  colnames(distances_df_summarised) <- c("pair",
+                                         "mean",
+                                         "min",
+                                         "max",
+                                         "median",
+                                         "std_dev")
+  
+  # Add columns for reference cell type and target cell type.
+  for (i in seq(nrow(distances_df_summarised))) {
+    # Get cell_types for each pair
+    cell_types <- strsplit(distances_df_summarised[i,"pair"], "/")[[1]]
+    
+    distances_df_summarised[i, "reference"] <- cell_types[1]
+    distances_df_summarised[i, "target"] <- cell_types[2]
+  }
+  
+  return(distances_df_summarised)
+}
+
+
 
 ### SPIAT2D ----
 calculate_all_gradient_cc_metrics2D <- function(spatial_df,
@@ -2227,7 +2263,7 @@ calculate_cell_proportion_grid_metrics2D <- function(spatial_df,
   result$proportion <- result$target / result$total
   
   # Add grid_prism_coordinates info to result
-  result <- cbind(result, grid_prism_coordinatess)
+  result <- cbind(result, grid_prism_coordinates)
   
   ## Plot
   if (plot_image) {
@@ -3609,6 +3645,41 @@ calculate_spatial_autocorrelation2D <- function(grid_metrics,
   I <- (n * numerator) / denominator
   
   return(I)
+}
+
+summarise_distances_between_cell_types2D <- function(distances_df) {
+  
+  # Just in case?
+  pair <- distance <- NULL
+  
+  # Summarise the results
+  distances_df_summarised <- distances_df %>%
+    dplyr::group_by(pair) %>%
+    dplyr::summarise(mean(distance),
+                     min(distance),
+                     max(distance),
+                     stats::median(distance),
+                     stats::sd(distance))
+  
+  distances_df_summarised <- data.frame(distances_df_summarised)
+  
+  colnames(distances_df_summarised) <- c("pair",
+                                         "mean",
+                                         "min",
+                                         "max",
+                                         "median",
+                                         "std_dev")
+  
+  # Add columns for reference cell type and target cell type.
+  for (i in seq(nrow(distances_df_summarised))) {
+    # Get cell_types for each pair
+    cell_types <- strsplit(distances_df_summarised[i,"pair"], "/")[[1]]
+    
+    distances_df_summarised[i, "reference"] <- cell_types[1]
+    distances_df_summarised[i, "target"] <- cell_types[2]
+  }
+  
+  return(distances_df_summarised)
 }
 
 
