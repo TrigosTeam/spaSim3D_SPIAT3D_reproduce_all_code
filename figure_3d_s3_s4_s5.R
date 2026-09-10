@@ -3766,6 +3766,7 @@ library(S4Vectors)
 library(stringr)
 library(dplyr)
 library(spaSim3D)
+library(SpatialExperiment)
 
 # Functions -----
 # Generate data frame containing values of important parameters
