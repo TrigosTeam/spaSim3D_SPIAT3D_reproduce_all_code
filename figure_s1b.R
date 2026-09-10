@@ -294,6 +294,12 @@ calculate_all_single_radius_cc_metrics3D <- function(spatial_df,
   n_cells_in_all_cell_type_radius <- sum(rapply(n_cells_in_all_cell_type_radius$id, base::length))
   
   for (target_cell_type in target_cell_types) {
+    
+    if (sum(spatial_df[[feature_colname]] == target_cell_type) == 0) {
+      co_occurrence_df[[target_cell_type]] <- NA
+      next
+    }
+    
     n_target_cells_in_reference_cell_type_radius <- sum(neighbourhood_counts_df[[target_cell_type]])
     target_cell_type_proportion_in_reference_cell_type_radius <- n_target_cells_in_reference_cell_type_radius / n_cells_in_reference_cell_type_radius
     
@@ -633,6 +639,11 @@ calculate_co_occurrence3D <- function(spatial_df,
   n_cells_in_all_cell_type_radius <- sum(rapply(n_cells_in_all_cell_type_radius$id, base::length))
   
   for (target_cell_type in target_cell_types) {
+    
+    if (sum(spatial_df[[feature_colname]] == target_cell_type) == 0) {
+      co_occurrence_df[[target_cell_type]] <- NA
+      next
+    }
     
     # Get total number of target cells in radius around reference cell type
     n_target_cells_in_reference_cell_type_radius <- sum(neighbourhood_counts_df[[target_cell_type]])
@@ -2145,6 +2156,12 @@ calculate_all_single_radius_cc_metrics2D <- function(spatial_df,
   n_cells_in_all_cell_type_radius <- sum(rapply(n_cells_in_all_cell_type_radius$id, base::length))
   
   for (target_cell_type in target_cell_types) {
+    
+    if (sum(spatial_df[[feature_colname]] == target_cell_type) == 0) {
+      co_occurrence_df[[target_cell_type]] <- NA
+      next
+    }
+    
     n_target_cells_in_reference_cell_type_radius <- sum(neighbourhood_counts_df[[target_cell_type]])
     target_cell_type_proportion_in_reference_cell_type_radius <- n_target_cells_in_reference_cell_type_radius / n_cells_in_reference_cell_type_radius
     
@@ -2477,6 +2494,11 @@ calculate_co_occurrence2D <- function(spatial_df,
   n_cells_in_all_cell_type_radius <- sum(rapply(n_cells_in_all_cell_type_radius$id, base::length))
   
   for (target_cell_type in target_cell_types) {
+    
+    if (sum(spatial_df[[feature_colname]] == target_cell_type) == 0) {
+      co_occurrence_df[[target_cell_type]] <- NA
+      next
+    }
     
     # Get total number of target cells in radius around reference cell type
     n_target_cells_in_reference_cell_type_radius <- sum(neighbourhood_counts_df[[target_cell_type]])
@@ -4125,7 +4147,7 @@ save_directory <- "~/R/reproduce_all_code_plots" # e.g. "~/R/plots/public_data/c
 ### Format data -----
 
 get_gradient <- function(metric) {
-  if (metric %in% c("MS", "NMS", "ACINP", "AE", "ACIN", "CKR", "CLR", "COO", "CGR", "CK", "CL", "CG")) {
+  if (metric %in% c("MS", "NMS", "ACINP", "AE", "ACIN", "COO", "CK", "CL", "CG")) {
     return("radius")
   }
   else if (metric %in% c("PBP", "EBP")) {
@@ -4152,13 +4174,13 @@ get_AUC_for_radii_gradient_metrics <- function(y) {
 radii <- seq(20, 100, 10)
 radii_colnames <- paste("r", radii, sep = "")
 
-gradient_radii_metrics <- c("MS", "NMS", "ACIN", "ANE", "ANC", "CKR", "CLR", "COO", "CGR", "CK", "CL", "CG")
+gradient_radii_metrics <- c("MS", "NMS", "ACIN", "ANE", "ANC", "COO", "CK", "CL", "CG")
 
 
 for (metric in gradient_radii_metrics) {
   metric_AUC_name <- paste(metric, "AUC", sep = "_")
   
-  if (metric %in% c("MS", "NMS", "ANC", "CKR", "CLR", "COO", "CGR", "CK", "CL", "CG")) {
+  if (metric %in% c("MS", "NMS", "ANC", "COO", "CK", "CL", "CG")) {
     subset_colnames <- c("slice", "reference", "target", metric_AUC_name)
   }
   else {
