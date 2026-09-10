@@ -3765,6 +3765,7 @@ library(ggplot2)
 library(S4Vectors)
 library(stringr)
 library(dplyr)
+library(spaSim3D)
 
 # Functions -----
 # Generate data frame containing values of important parameters
@@ -4595,6 +4596,9 @@ get_plot_df_for_random_slice <- function(metric_df_list,
     
     # Combine 3D and 2D values
     metric_df[["value3D"]] <- metric_values3D
+    
+    # Ensure simulation column is numeric
+    metric_df$simulation <- as.numeric(metric_df$simulation)
     
     # Merge metric_df and parameters_df
     parameters_df$simulation <- seq(nrow(parameters_df))

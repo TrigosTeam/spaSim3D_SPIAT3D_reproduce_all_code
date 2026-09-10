@@ -3767,6 +3767,7 @@ library(stringr)
 library(dplyr)
 library(scales)
 library(DescTools)
+library(spaSim3D)
 
 # Functions -----
 # Generate data frame containing values of important parameters
