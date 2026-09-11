@@ -3719,6 +3719,14 @@ library(reshape2)
 library(gtools)
 library(cowplot)
 library(Hmisc)
+library(tidyr)
+library(gridExtra)
+library(ComplexHeatmap)
+library(ggplot2)
+library(S4Vectors)
+library(stringr)
+library(scales)
+library(DescTools)
 
 ### Code to analyse a public 3D dataset made up of multiple slices. -----
 
@@ -4731,6 +4739,11 @@ stomics_fly_cells <- c("CNS", "epidermis", "carcass", "muscle", "midgut", "fat b
 
 # 3D vs 2D comparison
 fig_metric_3D_vs_2D_comparison <- plot_metric_3D_vs_2D_comparison(metric_df_list_combined, stomics_fly_cells, metrics)
+
+# Get tallies for categorical trends
+tallies <- tally_number_of_3D_values_in_and_above_and_below_2D_box_plot(metric_df_list_combined,
+                                                                        stomics_fly_cells,
+                                                                        metrics)
 
 # Bar plots of tallies
 tallies_plot2 <- plot_tallies_with_categories_bar(tallies, metrics)
