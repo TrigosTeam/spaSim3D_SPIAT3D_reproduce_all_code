@@ -4101,7 +4101,6 @@ analyse_SD1_simulations <- function(parameters_df) {
                                                            reference_cell_type,
                                                            cell_types,
                                                            radii,
-                                                           plot_image = F,
                                                            feature_colname = "Cell.Type")
       
       for (target_cell_type in cell_types) {
@@ -4261,7 +4260,6 @@ analyse_SD1_simulations <- function(parameters_df) {
                                                              reference_cell_type,
                                                              cell_types,
                                                              radii,
-                                                             plot_image = F,
                                                              feature_colname = "Cell.Type")
         
         for (target_cell_type in cell_types) {
