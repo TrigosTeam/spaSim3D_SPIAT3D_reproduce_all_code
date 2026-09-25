@@ -276,7 +276,7 @@ calculate_all_single_radius_cc_metrics3D <- function(spe,
     
     target_cell_type_fast_co_occurrence <- target_cell_type_proportion_in_reference_cell_type_radius / target_cell_type_proportion_in_spe
     
-    result[[target_cell_type]] <- target_cell_type_fast_co_occurrence
+    fast_co_occurrence_df[[target_cell_type]] <- target_cell_type_fast_co_occurrence
   }
   result[["fast_co_occurrence"]] <- fast_co_occurrence_df
   
@@ -2209,7 +2209,7 @@ calculate_all_single_radius_cc_metrics2D <- function(spe,
     
     target_cell_type_fast_co_occurrence <- target_cell_type_proportion_in_reference_cell_type_radius / target_cell_type_proportion_in_spe
     
-    result[[target_cell_type]] <- target_cell_type_fast_co_occurrence
+    fast_co_occurrence_df[[target_cell_type]] <- target_cell_type_fast_co_occurrence
   }
   result[["fast_co_occurrence"]] <- fast_co_occurrence_df
   
