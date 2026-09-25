@@ -6959,7 +6959,6 @@ library(ggplot2)
 library(S4Vectors)
 library(stringr)
 library(dplyr)
-library(spaSim3D)
 library(SpatialExperiment)
 
 # Functions -----

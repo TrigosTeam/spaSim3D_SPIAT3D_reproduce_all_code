@@ -6961,7 +6961,6 @@ library(stringr)
 library(dplyr)
 library(scales)
 library(DescTools)
-library(spaSim3D)
 library(SpatialExperiment)
 
 # Functions -----
