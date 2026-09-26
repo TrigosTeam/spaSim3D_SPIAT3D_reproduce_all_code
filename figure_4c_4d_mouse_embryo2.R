@@ -4211,29 +4211,6 @@ analyse_3D_data_with_2D_slices <- function(
 
 
 ### Analyse mouse embryo datasets -----
-data3D <- read.csv("~/R/data3D/spateo/mouse_E9.5_embryo.csv")
-data3D$Cell.Type[data3D$Cell.Type == ""] <- "Empty"
-
-cell_types <- c("Neuroectoderm-derived", 
-                "Neural crest (PNS neurons)", 
-                "Primitive erythroid cells",
-                "Endothelium", 
-                "Cranial mesoderm", 
-                "Placode and neural crest-derived")
-
-metric_df_list <- 
-  analyse_3D_data_with_2D_slices(
-    data3D = data3D,
-    cell_types = cell_types,
-    radii = seq(20, 100, 10),
-    n_splits = 10,
-    thresholds = seq(0.01, 1, 0.01)
-  )
-saveRDS(metric_df_list, "~/R/reproduce_all_code_data/mouse_embryo_e9_5_metric_df_list.RDS")
-
-
-
-
 data3D <- read.csv("~/R/data3D/spateo/mouse_E11.5_embryo.csv")
 data3D$Cell.Type[data3D$Cell.Type == ""] <- "Empty"
 
