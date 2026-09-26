@@ -65,7 +65,7 @@ calculate_all_gradient_cc_metrics3D <- function(spatial_df,
     result[["neighbourhood_entropy"]][i, ] <- apply(df[["neighbourhood_entropy"]][ , paste(target_cell_types, "_entropy", sep = "")], 2, mean, na.rm = T)
     result[["cross_K"]][i, ] <- df[["cross_K"]]
     result[["cross_L"]][i, ] <- df[["cross_L"]]
-    result[["co_occurrence"]][i, ] <- df[["co_occurrence"]]
+    result[["fast_co_occurrence"]][i, ] <- df[["fast_co_occurrence"]]
     
     for (target_cell_type in names(df[["mixing_score"]])) {
       result[["mixing_score"]][[target_cell_type]][i, ] <- df[["mixing_score"]][[target_cell_type]]
