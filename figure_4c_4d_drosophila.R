@@ -4282,19 +4282,6 @@ saveRDS(metric_df_list, "~/R/reproduce_all_code_data/L3_metric_df_list.RDS")
 
 
 
-### Libraries -----
-library(SpatialExperiment)
-library(plotly)
-library(dplyr)
-library(tidyr)
-library(gridExtra)
-library(ComplexHeatmap)
-library(cowplot)
-library(ggplot2)
-library(S4Vectors)
-library(stringr)
-library(scales)
-library(DescTools)
 ### Read analysis data -------
 setwd("~/R/reproduce_all_code_data")
 
