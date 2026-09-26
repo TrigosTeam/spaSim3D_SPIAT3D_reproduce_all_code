@@ -4316,7 +4316,7 @@ for (stomics_dataset_name in stomics_dataset_names) {
 
 ### Format analysis data by adding AUC --------
 get_gradient <- function(metric) {
-  if (metric %in% c("MS", "NMS", "ACIN", "ANE", "ANC", "COO", "CK", "CL", "CG")) {
+  if (metric %in% c("MS", "NMS", "ACIN", "ANE", "ANC", "FCO", "CK", "CL", "CG")) {
     return("radius")
   }
   else if (metric %in% c("PBP", "EBP")) {
