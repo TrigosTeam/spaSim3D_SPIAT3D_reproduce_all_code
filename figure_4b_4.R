@@ -6962,6 +6962,8 @@ library(dplyr)
 library(scales)
 library(DescTools)
 library(SpatialExperiment)
+library(ComplexHeatmap)
+library(circlize)
 # Set seed for consistency ----
 set.seed(678999821)
 
@@ -8090,7 +8092,7 @@ metrics <- c("AMD",
 fig <- heatmap_p_values_for_each_metric_and_for_pair_A_B_for_many_collections_3D_subtract_2D(simulated_collection_analyses,
                                                                                              metrics,
                                                                                              0.05)
-setwd("~/R/plots/SD3")
+setwd("~/R/reproduce_all_code_plots")
 pdf("heatmap_p_values_for_each_metric_and_for_pair_A_B_for_many_collections_3D_subtract_2D.pdf", width = 6.5, height = 7.5)
 print(fig)
 dev.off()
