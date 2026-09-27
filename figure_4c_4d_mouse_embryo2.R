@@ -4787,7 +4787,7 @@ tallies <- tally_number_of_3D_values_in_and_above_and_below_2D_box_plot(metric_d
 
 tallies_plot2 <- plot_tallies_with_categories_bar(tallies, metrics)
 
-setwd("~/R/plots/public_data/mouse_embryo_comparison")
+setwd("~/R/reproduce_all_code_plots")
 pdf("mouse_embryo_3D_vs_2D_comparison_bar.pdf", width = 8, height = 3.6)
 
 print(tallies_plot2)
