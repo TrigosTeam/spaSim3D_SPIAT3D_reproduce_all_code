@@ -1191,11 +1191,11 @@ plot_percentage_difference_vs_metric_by_pair_A_B_for_random_slice_showing_struct
   # Structure colors
   structure_cols <- c(
     "mixed_ellipsoid" = "#007128",
-    "mixed_network" = "#b8db50",
-    "ringed_ellipsoid" = "#9437a8",
-    "ringed_network" = "#d99dff",
     "separated_ellipsoid" = "#770026",
-    "separated_network" = "#bb0036"
+    "ringed_ellipsoid" = "#9437a8",
+    "mixed_network" = "#b8db50",
+    "separated_network" = "#bb0036",
+    "ringed_network" = "#d99dff"
   )
   
   fig <- ggplot(plot_df, aes(x = metric, y = error, fill = structure)) +
