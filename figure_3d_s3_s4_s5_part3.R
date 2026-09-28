@@ -1085,11 +1085,11 @@ plot_percentage_difference_vs_3D_by_metric_and_pair_A_B_for_random_slice_showing
     scale_color_manual(
       values = c(
         "mixed_ellipsoid" = "#007128",
-        "mixed_network" = "#b8db50",
-        "ringed_ellipsoid" = "#9437a8",
-        "ringed_network" = "#d99dff",
         "separated_ellipsoid" = "#770026",
-        "separated_network" = "#bb0036"
+        "ringed_ellipsoid" = "#9437a8",
+        "mixed_network" = "#b8db50",
+        "separated_network" = "#bb0036",
+        "ringed_network" = "#d99dff"
       )
     )
   
@@ -1111,6 +1111,14 @@ plot_correlation_vs_structure_by_metric_and_pair_A_B_for_random_slice_dot_plot <
       corr = cor(value3D, value2D, method = "spearman", use = "complete.obs"),
       .groups = "drop"
     )
+  
+  # Factor for structure
+  corr_df$structure <- factor(corr_df$structure, c("mixed_ellipsoid",
+                                                   "separated_ellipsoid",
+                                                   "ringed_ellipsoid",
+                                                   "mixed_network",
+                                                   "separated_network",
+                                                   "ringed_network"))
   
   fig <- ggplot(corr_df, aes(x = structure, y = corr)) + 
     geom_point() +
