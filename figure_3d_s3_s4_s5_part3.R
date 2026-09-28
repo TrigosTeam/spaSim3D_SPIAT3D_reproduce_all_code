@@ -1138,6 +1138,14 @@ plot_percentage_difference_vs_metric_by_pair_A_B_for_random_slice_showing_struct
   # Factor for metric
   plot_df$metric <- factor(plot_df$metric, metrics)
   
+  # Factor for structure
+  plot_df$structure <- factor(plot_df$structure, c("mixed_ellipsoid",
+                                                   "separated_ellipsoid",
+                                                   "ringed_ellipsoid",
+                                                   "mixed_network",
+                                                   "separated_network",
+                                                   "ringed_network"))
+  
   # Compute spearman correlation
   corr_df <- plot_df %>%
     group_by(pair, metric, structure) %>%
