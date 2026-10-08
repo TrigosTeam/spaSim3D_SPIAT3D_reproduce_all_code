@@ -3822,8 +3822,8 @@ setwd("~/R/data3D/CyCIF_colorectal_cancer")
 data3D <- read.csv("colorectal_cancer_df.csv")
 data3D <- data3D[, -1]
 colnames(data3D)[1:3] <- c("Cell.X.Position", "Cell.Y.Position", "Cell.Z.Position")
-colnames(data3D)[4:5] <- c("Cell.Type.Specific", "Cell.Type")
-data3D$Cell.Type[data3D$Cell.Type == "Tumor/Epi"] <- "Tumour"
+colnames(data3D)[4:5] <- c("Cell.Type", "Cell.Type.Broad")
+data3D$Cell.Type[data3D$Cell.Type.Broad == "Tumor/Epi"] <- "Tumour"
 
 cell_types <- unique(data3D$Cell.Type)
 
