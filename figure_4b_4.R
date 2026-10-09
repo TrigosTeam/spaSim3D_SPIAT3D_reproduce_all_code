@@ -7993,8 +7993,8 @@ MN_vs_lMN_collection <- readRDS("~/R/reproduce_all_code_data/MN_vs_lMN_collectio
 
 
 simulated_collection_analyses <- list("ME_vs_ME" = ME_vs_ME_collection,
-                                      "MN_vs_MN" = ME_vs_lME_collection,
                                       "ME_vs_lME" = MN_vs_MN_collection,
+                                      "MN_vs_MN" = ME_vs_lME_collection,
                                       "MN_vs_lMN" = MN_vs_lMN_collection)
 
 
