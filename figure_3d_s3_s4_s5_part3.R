@@ -577,6 +577,9 @@ plot_percentage_difference_vs_metric_by_pair_A_B_for_averaged_slice_box_plot <- 
   # Get error column
   plot_df$error <- (plot_df$value2D - plot_df$value3D) / plot_df$value3D * 100
   
+  # Factor metrics
+  plot_df$metric <- factor(plot_df$metric, metrics)
+  
   # Get correlation
   corr_df <- plot_df %>% 
     group_by(metric) %>% 
