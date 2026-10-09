@@ -4220,7 +4220,7 @@ analyse_3D_data_with_2D_slices <- function(
 
 ### Analyse stomics drosophila datasets -----
 setwd("~/R/data3D/stomics_fly")
-cell_types <- c("CNS", "epidermis", "carcass", "muscle", "fat body")
+cell_types <- c("CNS", "epidermis", "carcass", "muscle", "fat body", "midgut")
 
 data3D <- read.csv("E14-16h_df.csv")
 metric_df_list <- 
