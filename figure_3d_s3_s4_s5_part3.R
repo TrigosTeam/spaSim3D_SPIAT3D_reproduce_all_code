@@ -584,7 +584,7 @@ plot_percentage_difference_vs_metric_by_pair_A_B_for_averaged_slice_box_plot <- 
       corr = cor(value3D, value2D, method = "spearman", use = "complete.obs"), 
       .groups = "drop")
   
-  write.csv(summary_df, paste("~/R/values_from_figures/average_slice_summary_df.csv", sep = ""))
+  write.csv(corr_df, "~/R/values_from_figures/average_slice_corr_df.csv")
   
   # map corr ∈ [-1,1] → error ∈ [-1000,1000]
   y_min <- -1000
